@@ -18,13 +18,14 @@ public class GestorProductos {
         System.out.println("Producto agregado correctamente!");
     }
 
-    public void mostrarProductos() {
-        System.out.println("\n//======================================//");
-        System.out.println("//        Productos disponibles:        //");
+    public String toString() {
+        String texto = "\n//======================================//\n"+
+                        "//        Productos disponibles:        //\n";
         for (Producto producto : productos) {
-            producto.imprimir();
+            texto += producto.toString();
         }
-        System.out.println("//======================================//\n");
+        texto += "//======================================//\n\n";
+        return texto;
     }
    
     public void buscarOActualizarProducto() {
@@ -39,8 +40,7 @@ public class GestorProductos {
         } 
 
         if (productoEncontrado != null) {
-            System.out.println("Producto encontrado: ");
-            productoEncontrado.imprimir();
+            System.out.println("Producto encontrado: \n" + productoEncontrado.toString());
             menuActualizarProducto(productoEncontrado);
         } else {
             System.out.println("No se encontro el producto!");
@@ -53,8 +53,7 @@ public class GestorProductos {
         Producto productoEncontrado = getProducto(id); 
         
         if (productoEncontrado != null) {
-            System.out.println("Producto encontrado: ");
-            productoEncontrado.imprimir();
+            System.out.println("Producto encontrado: \n" + productoEncontrado.toString());
             String eliminar = Utilidades.inputString("Esta seguro que quiere eliminarlo? Ingrese 'S' para confirmarlo: ");
 
             if (eliminar.toUpperCase().equals("S")) {
@@ -85,8 +84,10 @@ public class GestorProductos {
         nombre = Utilidades.capitalizarTexto(nombre);
                     
         Double precio = Utilidades.inputDouble("Ingrese el precio de " + nombre + ": ");
+        // validar precio
                     
         int cantidadEnStock = Utilidades.inputInt("Ingrese la cantidad de " + nombre + ": ");
+        // validar cantidad > 0
 
         producto.setDatos(nombre, precio, cantidadEnStock);
     }

@@ -21,16 +21,19 @@ public class Pedido {
         productos.add(producto);
     }
 
-    public void imprimir() {
+    public String toString() {
         String id2esp = String.format("%2s", this.id);
         String costoEsp = String.format("%-21s", getCostoTotal());
-        System.out.println("//======================================//");
-        System.out.println("//              Pedido "+id2esp+"               //");
+        String texto = "//======================================//\n" +
+                        "//              Pedido "+id2esp+"               //\n";
+
         for (Producto producto : productos) {
-            producto.imprimir();
+            texto += producto.toString();
         }
-        System.out.println("//  Costo total: $ "+ costoEsp +"//");
-        System.out.println("//======================================//\n");
+
+        texto += "//  Costo total: $ "+ costoEsp +"//\n" +
+                "//======================================//\n\n";
+        return texto;
     }
     
     private Double getCostoTotal() {

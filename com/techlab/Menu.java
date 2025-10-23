@@ -17,7 +17,7 @@ public class Menu {
         this.gestorProductos.agregarNuevoProducto();
     }
     private void listaProductos() {
-        this.gestorProductos.mostrarProductos();
+        System.out.println(this.gestorProductos.toString());
     }
     private void buscarOActualizarProducto() {
         this.gestorProductos.buscarOActualizarProducto();
@@ -29,7 +29,7 @@ public class Menu {
         this.gestorPedidos.crearPedido();
     }
     private void listarPedidos() {
-        this.gestorPedidos.mostrarPedidos();
+        System.out.println(this.gestorPedidos.toString());
     }
 
     public void ejecutar() {

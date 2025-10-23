@@ -58,13 +58,14 @@ public class GestorPedidos {
     }
 
 
-    public void mostrarPedidos() {
-        System.out.println("\n¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡");
-        System.out.println("||            Lista de pedidos          ||");
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
+    public String toString() {
+        String texto = "\n¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡\n" +
+                        "||            Lista de pedidos          ||\n" +
+                        "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n";
         for (Pedido pedido : pedidos) {
-            pedido.imprimir();
+            texto += pedido.toString();
         }
+        return texto;
     }
 
 }

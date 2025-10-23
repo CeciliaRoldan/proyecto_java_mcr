@@ -14,16 +14,16 @@ public class Producto {
         this.id = id;
     }
 
-    public void imprimir() {
+    public String toString() {
         String id2esp = String.format("%2s", this.id);
         String nombreEsp = String.format("%-26s", this.nombre);
         String precioEsp = String.format("Precio: $ %-16s", this.precio);
         String cantidadEsp = String.format("Cantidad: %-16s", this.cantidad + " unidades");
-        System.out.println("//--------------------------------------//");
-        System.out.println("//        :   "         + nombreEsp + "//");
-        System.out.println("//   "+id2esp+"   :   " + precioEsp + "//");
-        System.out.println("//        :   "         + cantidadEsp + "//");
-        System.out.println("//--------------------------------------//");
+        return "//--------------------------------------//\n" +
+                "//        :   "         + nombreEsp + "//\n" +
+                "//   "+id2esp+"   :   " + precioEsp + "//\n" +
+                "//        :   "         + cantidadEsp + "//\n" +
+                "//--------------------------------------//\n";
     }
 
 
